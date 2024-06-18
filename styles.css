@@ -1,6 +1,22 @@
+:root {
+    --primary-color: rgb(49, 49, 49);
+    --secondary-color: white;
+
+    --cell-border-radius: 1vw;
+}
+@font-face { font-family: Daggersquare; src: url('assets/daggersquare.regular.otf'); } 
+
+.gamefield {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .gamefield .row {
-    background-color: antiquewhite;
-    width: 34.3vw;
+    background-color: rgb(49, 49, 49);
+    flex-direction: row;
+    flex-wrap: nowrap;
     height: 12vw;
 }
 
@@ -9,29 +25,101 @@
 }
 
 .gamefield .cell {
-    background-color: #a675d4;
     width: 10vw;
     height: 10vw;
     display: inline-block;
     position: relative;
+    background-color: white;
 }
 
-.gamefield [data-cell="1"] {
+.gamefield .cell[data-cell="1"] {
     margin-right: 0.75vw;
 }
-.gamefield [data-cell="2"] {
+.gamefield .cell[data-cell="2"] {
     margin-right: 0.75vw;
     margin-left: 0.75vw;
 }
-.gamefield [data-cell="3"] {
+.gamefield .cell[data-cell="3"] {
     margin-left: 0.75vw;
 }
-.gamefield .cell[data-type="none"] {
-    background-color: #a675d4;
+
+.gamefield .cell[data-cell="1"][data-row="1"] {
+    border-bottom-right-radius: var(--cell-border-radius);
 }
-.gamefield .cell[data-type="player-o"] {
-    background-color: #9c741c;
+.gamefield .cell[data-cell="2"][data-row="1"] {
+    border-bottom-right-radius: var(--cell-border-radius);
+    border-bottom-left-radius: var(--cell-border-radius);
 }
-.gamefield .cell[data-type="player-x"] {
-    background-color: #2b9422;
+.gamefield .cell[data-cell="3"][data-row="1"] {
+    border-bottom-left-radius: var(--cell-border-radius);
+}
+.gamefield .cell[data-cell="1"][data-row="2"] {
+    border-top-right-radius: var(--cell-border-radius);
+    border-bottom-right-radius: var(--cell-border-radius);
+}
+.gamefield .cell[data-cell="2"][data-row="2"] {
+    border-radius: var(--cell-border-radius);
+}
+.gamefield .cell[data-cell="3"][data-row="2"] {
+    border-top-left-radius: var(--cell-border-radius);
+    border-bottom-left-radius: var(--cell-border-radius);
+}
+.gamefield .cell[data-cell="1"][data-row="3"] {
+    border-top-right-radius: var(--cell-border-radius);
+}
+.gamefield .cell[data-cell="2"][data-row="3"] {
+    border-top-right-radius: var(--cell-border-radius);
+    border-top-left-radius: var(--cell-border-radius);
+}
+.gamefield .cell[data-cell="3"][data-row="3"] {
+    border-top-left-radius: var(--cell-border-radius);
+}
+
+
+.gamefield .cell[data-type="none"]:hover {
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+    transition: background-color 0.2s;
+}
+.gamefield .cell[data-type="player-x"]::before {
+    content: "X";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    font-size: 11vw;
+    font-family: Daggersquare;
+}
+
+.gamefield .cell[data-type="player-o"]::before {
+    content: "O";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    font-size: 11vw;
+    font-family: Daggersquare;
+}
+
+.player-symbol-style {
+    width: 5vw;
+    height: 1vw;
+    position: static;
+    z-index: 2;
+}
+
+.gamefield .cell[data-style="1"][data-type="player-o"]::before {
+    color: #555C69;
+}
+
+.gamefield .cell[data-style="1"][data-type="player-x"]::before {
+    color: #7E8E73;
+}
+
+.gamefield .cell[data-style="2"][data-type="player-o"]::before {
+    color: #26BDA9;
+}
+
+.gamefield .cell[data-style="2"][data-type="player-x"]::before {
+    color: #4D3645;
 }

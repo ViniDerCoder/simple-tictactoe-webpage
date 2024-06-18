@@ -21,3 +21,17 @@ export let checkComputerMoveInterval = setInterval(() => {
         computerMove();
     }
 }, 100)
+
+//selct menu
+document.addEventListener('DOMContentLoaded', () => {
+    const selectMenu = document.getElementById('player-symbol-style');
+
+    selectMenu.addEventListener('change', (event) => {
+        const selectedStyle = event.target.value;
+        
+        const cells = document.querySelectorAll('.gamefield .cell');
+        cells.forEach(cell => {
+            cell.setAttribute('data-style', selectedStyle);
+        });
+    });
+});
