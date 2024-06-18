@@ -8,6 +8,13 @@ export function getField() {
     return field
 }
 
+export function getFieldCopy() {
+    return field.reduce((acc, row) => {
+        acc.push([...row])
+        return acc
+    }, [])
+}
+
 export function changeField(row, col, player) {
     console.log(row, col, player, field)
     if(field[row-1][col-1]) return false

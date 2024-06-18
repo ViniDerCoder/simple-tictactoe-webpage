@@ -2,7 +2,7 @@
 /**
  * @returns {string} returns the winner or null for no winner
  */
-exports.checkWin = (field) => {
+export function checkWin(field) {
     //rows
     for (let row = 0; row < 3; row++) {
         if (field[row][0] === field[row][1] && field[row][1] === field[row][2] && field[row][0] !== null) {
@@ -27,4 +27,16 @@ exports.checkWin = (field) => {
     }
 
     return null
+}
+
+export function checkDraw(field) {
+    for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+            if (field[row][col] === null) {
+                return false
+            }
+        }
+    }
+
+    return true
 }

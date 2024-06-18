@@ -29,7 +29,7 @@
 .gamefield .cell[data-type="none"] {
     background-color: #a675d4;
 }
-.gamefield .cell[data-type="player-y"] {
+.gamefield .cell[data-type="player-o"] {
     background-color: #9c741c;
 }
 .gamefield .cell[data-type="player-x"] {
