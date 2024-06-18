@@ -8,12 +8,9 @@
     <script src="./index.js" type="module"></script>
 </head>
 <body>
-    <select name="style" class="player-symbol-style" id="player-symbol-style">
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select>
     <div class="game">
         <div class="gamefield">
+            <title id="title-status-bar" class="status-bar">Gamefield</title>
             <div class="row" id="row-1">
                 <div class="cell" data-type="none" data-row="1" data-cell="1" data-style="1"></div>
                 <div class="cell" data-type="none" data-row="1" data-cell="2" data-style="1"></div>
@@ -31,5 +28,12 @@
             </div>
         </div>
     </div>
+    <button class="reset-button" id="reset-button">Reset</button>
+    <select name="style" class="player-symbol-style" id="player-symbol-style">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
 </body>
 </html>

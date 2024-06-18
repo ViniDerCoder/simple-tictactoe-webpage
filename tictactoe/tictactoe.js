@@ -1,6 +1,6 @@
 import { checkComputerMoveInterval, finishGame } from '../index.js'
 import { checkDraw, checkWin } from './checkWin.js'
-import { changeField, getField, getFieldCopy } from './field.js'
+import { changeField, getField, getFieldCopy, resetField } from './field.js'
 import { getComputerMove } from './computer.js'
 
 export let currentPlayer = 'X'
@@ -8,6 +8,14 @@ export let currentPlayer = 'X'
 export let computerPlayer = 'O'
 export let humanPlayer = computerPlayer === "X" ? "O" : "X"
 
+export function startGame() {
+    currentPlayer = Math.round(Math.random()) == 1 ? 'X' : 'O'
+
+    const statusBar = document.getElementById('title-status-bar')
+    statusBar.innerText = currentPlayer === computerPlayer ? "Computer starts" : "Player starts"
+    
+    resetField()
+}
 
 export function clickEvent(event) {
     const row = event.target.getAttribute('data-row')

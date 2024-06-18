@@ -1,29 +1,44 @@
-import { clickEvent, currentPlayer, computerPlayer, computerMove } from './tictactoe/tictactoe.js';
+import { clickEvent, currentPlayer, computerPlayer, computerMove, startGame as resetGame } from './tictactoe/tictactoe.js';
 
-let gameFinished = false
-export function getGameFinished() {
-    return gameFinished
+let gameLocked = true
+export function getGameLocked() {
+    return gameLocked
 }
 
 document.querySelectorAll('.cell').forEach(cell => {
     cell.addEventListener('click', (event) => {
-        if(!gameFinished) clickEvent(event)
+        if(!gameLocked) clickEvent(event)
     })
 })
 
-export function finishGame() {
+export function finishGame(winner) {
+    const statusBar = document.getElementById('title-status-bar')
+    if(winner === "draw") {
+        statusBar.innerText = "Game over - Tie!"
+        console.log("It's a draw!")
+    } else { 
+        statusBar.innerText = "Game over - Player " + winner + " wins!"
+        console.log("Player " + winner + " wins!")
+    }
     clearInterval(checkComputerMoveInterval)
-    gameFinished = true
+    gameLocked = true
 }
 
-export let checkComputerMoveInterval = setInterval(() => {
-    if(currentPlayer === computerPlayer) {
-        computerMove();
-    }
-}, 100)
+export let checkComputerMoveInterval;
 
-//selct menu
+export function startGame() {
+    resetGame()
+    gameLocked = false
+    checkComputerMoveInterval = setInterval(() => {
+        if(currentPlayer === computerPlayer) {
+            computerMove();
+        }
+    }, 100)
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    startGame();
+    //selct menu
     const selectMenu = document.getElementById('player-symbol-style');
 
     selectMenu.addEventListener('change', (event) => {
@@ -33,5 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cells.forEach(cell => {
             cell.setAttribute('data-style', selectedStyle);
         });
+    });
+
+    //reset button
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', () => {
+        startGame();
     });
 });

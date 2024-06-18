@@ -8,6 +8,17 @@ export function getField() {
     return field
 }
 
+export function resetField() {
+    field = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null]
+    ]
+    document.querySelectorAll('.cell').forEach(cell => {
+        cell.setAttribute('data-type', 'none')
+    })
+}
+
 export function getFieldCopy() {
     return field.reduce((acc, row) => {
         acc.push([...row])
