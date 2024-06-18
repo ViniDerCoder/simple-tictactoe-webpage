@@ -1,6 +1,6 @@
-import { checkComputerMoveInterval } from '../index.js'
+import { checkComputerMoveInterval, finishGame } from '../index.js'
 import { checkDraw, checkWin } from './checkWin.js'
-import { changeField, getField } from './field.js'
+import { changeField, getField, getFieldCopy } from './field.js'
 import { getComputerMove } from './computer.js'
 
 export let currentPlayer = 'X'
@@ -21,7 +21,7 @@ export function clickEvent(event) {
 }
 
 export function computerMove() {
-    const [row, col] = getComputerMove(getField())
+    const [row, col] = getComputerMove(getFieldCopy())
 
     if(move(row, col, currentPlayer)) {
         currentPlayer = humanPlayer
@@ -31,13 +31,11 @@ export function computerMove() {
 function move(row, col, player) {
     if(changeField(row, col, player)) {
         if(checkDraw(getField())) {
-            clearInterval(checkComputerMoveInterval)
-            console.log('Draw')
+            finishGame("draw")
         } else {
             let winner = checkWin(getField())
             if(winner) {
-                clearInterval(checkComputerMoveInterval)
-                console.log('Winner:', winner)
+                finishGame(winner)
             }
         }
         currentPlayer = computerPlayer === currentPlayer ? humanPlayer : computerPlayer
