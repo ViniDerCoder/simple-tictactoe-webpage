@@ -16,13 +16,22 @@
     position: relative;
 }
 
-.gamefield #cell-1 {
+.gamefield [data-cell="1"] {
     margin-right: 0.75vw;
 }
-.gamefield #cell-2 {
+.gamefield [data-cell="2"] {
     margin-right: 0.75vw;
     margin-left: 0.75vw;
 }
-.gamefield #cell-3 {
+.gamefield [data-cell="3"] {
     margin-left: 0.75vw;
+}
+.gamefield .cell[data-type="none"] {
+    background-color: #a675d4;
+}
+.gamefield .cell[data-type="player-y"] {
+    background-color: #9c741c;
+}
+.gamefield .cell[data-type="player-x"] {
+    background-color: #2b9422;
 }
