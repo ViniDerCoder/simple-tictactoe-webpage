@@ -1,0 +1,28 @@
+.gamefield .row {
+    background-color: antiquewhite;
+    width: 34.3vw;
+    height: 12vw;
+}
+
+.gamefield #row-3 {
+    height: 10vw;
+}
+
+.gamefield .cell {
+    background-color: #a675d4;
+    width: 10vw;
+    height: 10vw;
+    display: inline-block;
+    position: relative;
+}
+
+.gamefield #cell-1 {
+    margin-right: 0.75vw;
+}
+.gamefield #cell-2 {
+    margin-right: 0.75vw;
+    margin-left: 0.75vw;
+}
+.gamefield #cell-3 {
+    margin-left: 0.75vw;
+}
