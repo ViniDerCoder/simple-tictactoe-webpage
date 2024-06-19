@@ -154,3 +154,37 @@
 .gamefield .cell[data-style="4"][data-type="player-x"] {
     color: #41161F;
 }
+
+
+.reset-button {
+    margin-left: 44.5vw;
+    margin-right: 44.5vw;
+    width: 10vw;
+    height: 4vw;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 2vw;
+    font-family: Daggersquare;
+    border-radius: 0.75vw;
+    margin-top: 2vh;
+    cursor: pointer;
+}
+.player-symbol-style {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-left: 46vw;
+    margin-top: 1vh;
+    text-align: center;
+    border-radius: 0.2vw;
+    align-items: center;
+    appearance: none;
+    border: 0;
+    width: 7vw;
+    height: 1.5vw;
+    font-size: 1vw;
+    font-family: Daggersquare;
+    position: static;
+}
+.player-symbol-style:hover {
+    cursor: pointer;
+}
