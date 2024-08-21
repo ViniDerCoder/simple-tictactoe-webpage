@@ -16,3 +16,9 @@ The rules of Tic-Tac-Toe are simple. The game is played on a 3x3 grid. A player 
 - Responsive design for different screen sizes
 - Multiple color schemes to choose from
 - Option to restart the game at any time
+
+## Images
+
+![image](https://github.com/user-attachments/assets/5a217d71-1d50-4066-8220-fffaa38d2d5c)
+![image](https://github.com/user-attachments/assets/a1f8d6e1-9b09-4da4-b088-e1d95e1efd12)
+![image](https://github.com/user-attachments/assets/f5e9bea3-f10e-4274-be92-c3e3a53fa171)
